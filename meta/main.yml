@@ -23,10 +23,10 @@ galaxy_info:
   platforms:
   - name: EL
     versions:
-    - all
+  #  - all
   #  - 5
   #  - 6
-  #  - 7
+    - 7
   #- name: GenericUNIX
   #  versions:
   #  - all

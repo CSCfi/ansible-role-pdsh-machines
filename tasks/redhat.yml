@@ -2,21 +2,12 @@
 # tasks file for ansible-role-pdsh-machines
 #
 
-# - name: install pdsh and dependencies
-#   yum: name={{ item }} state=installed
-#   with_items: pdsh_packages
+ - name: install pdsh and dependencies
+   yum: name={{ item }} state=installed
+   with_items: pdsh_el7_packages
+   when: ansible_distribution_major_version == "7"
 
- - name: populate machines file locally
-   lineinfile:
-         dest={{ pdsh_local_file }}
-         regexp='^{{ hostvars[item].inventory_hostname }}$'
-         line="{{ hostvars[item].inventory_hostname }}" 
-         state=present
-         create=yes
-   with_items: "{{ pdsh_group }}"
-   delegate_to: localhost 
-   sudo: no
-   register: reg_pdsh_machines
-
- - name: copy in /etc/machines
-   copy: src={{ pdsh_local_file }} dest=/etc/machines mode=0644
+ - name: install pdsh and dependencies
+   yum: name={{ item }} state=installed
+   with_items: pdsh_el6_packages
+   when: ansible_distribution_major_version == "6"
