@@ -1,0 +1,17 @@
+---
+# tasks file for ansible-role-pdsh-machines
+#
+
+# - name: install pdsh and dependencies
+#   yum: name={{ item }} state=installed
+#   with_items: pdsh_packages
+
+ - name: populate machines file locally 
+   lineinfile:
+         dest=/tmp/machines
+         regexp='^{{ hostvars[item].{{ pdsh_name_var }} }}$'
+         line="{{ hostvars[item].{{ pdsh_name_var }} }}" 
+         state=present
+   with_items: {{ pdsh_group }}
+   delegate_to: localhost
+ 

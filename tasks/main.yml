@@ -1,0 +1,6 @@
+---
+# tasks file for ansible-role-pdsh-machines
+#
+
+ - include: redhat.yml
+   when: ansible_os_family == "RedHat"

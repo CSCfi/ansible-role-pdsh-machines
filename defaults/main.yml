@@ -1,0 +1,12 @@
+---
+# defaults file for ansible-role-pdsh-machines
+
+pdsh_packages:
+ - pdsh
+ - pdsh-mod-genders
+ - pdsh-mod-dshgroup
+ - pdsh-mod-netgroup
+
+# The group in the hosts file we populate
+pdsh_group: groups.compute
+pdsh_name_var: pxe_name
