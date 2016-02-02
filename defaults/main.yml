@@ -4,7 +4,6 @@
 pdsh_el7_packages:
  - pdsh
  - pdsh-mod-dshgroup
- - pdsh-mod-genders
  - pdsh-mod-machines
  - pdsh-mod-netgroup
  - pdsh-rcmd-ssh
