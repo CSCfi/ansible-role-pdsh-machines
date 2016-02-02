@@ -6,12 +6,19 @@
 #   yum: name={{ item }} state=installed
 #   with_items: pdsh_packages
 
- - name: populate machines file locally 
+ - name: populate machines file locally
    lineinfile:
-         dest=/tmp/machines
-         regexp='^{{ hostvars[item].{{ pdsh_name_var }} }}$'
-         line="{{ hostvars[item].{{ pdsh_name_var }} }}" 
+         dest={{ pdsh_local_file }}
+         regexp='^{{ hostvars[item].inventory_hostname }}$'
+         line="{{ hostvars[item].inventory_hostname }}" 
          state=present
-   with_items: {{ pdsh_group }}
-   delegate_to: localhost
+         create=yes
+   with_items: "{{ pdsh_group }}"
+   delegate_to: localhost 
+   sudo: no
+   register: reg_pdsh_machines
+
+ - name: copy in /etc/machines
+   copy: src={{ pdsh_local_file }} dest=/etc/machines mode=0644
+   when: reg_pdsh_machines.changed
  
