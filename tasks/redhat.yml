@@ -2,12 +2,12 @@
 # tasks file for ansible-role-pdsh-machines
 #
 
- - name: install pdsh and dependencies
+ - name: install pdsh and dependencies EL7
    yum: name={{ item }} state=installed
    with_items: pdsh_el7_packages
    when: ansible_distribution_major_version == "7"
 
- - name: install pdsh and dependencies
+ - name: install pdsh and dependencies EL6
    yum: name={{ item }} state=installed
    with_items: pdsh_el6_packages
    when: ansible_distribution_major_version == "6"

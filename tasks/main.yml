@@ -25,13 +25,11 @@
 #
 # - name: populate dsh group files locally
 #   lineinfile:
-#         dest=files/dsh/group/{{ item[0].key }}
+#         dest='files/dsh/group/{{ item.key }}'
 #         regexp='^{{ inventory_hostname }}$'
 #         line='{{ inventory_hostname }}'
 #         state=present
 #         create=yes
-#   with_subelements: 
-#    - "{{ groups }}"
-#    - "{{ groups.item[0] }}"
+#   with_dict: groups
 #   delegate_to: localhost 
 #   sudo: no
