@@ -9,3 +9,5 @@
    roles:
      - ansible-role-fgci-repo
      - ansible-role-pdsh-machines
+   vars:
+     - pdsh_group: "{{ groups['compute'] }}"
