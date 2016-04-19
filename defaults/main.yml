@@ -18,6 +18,6 @@ pdsh_el6_packages:
 # The group in the hosts file we populate
 
 # The group in the hosts file we populate
-pdsh_group: groups.compute
+pdsh_group: "{{ groups['compute'] }}"
 pdsh_name_var: pxe_name
 pdsh_local_file: "files/machines"
