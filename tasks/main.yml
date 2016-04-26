@@ -14,7 +14,7 @@
          create=yes
    with_items: "{{ pdsh_group }}"
    delegate_to: localhost 
-   sudo: no
+   become: no
    register: reg_pdsh_machines
 
  - name: copy in /etc/machines
@@ -32,4 +32,4 @@
 #         create=yes
 #   with_dict: groups
 #   delegate_to: localhost 
-#   sudo: no
+#   become: no
