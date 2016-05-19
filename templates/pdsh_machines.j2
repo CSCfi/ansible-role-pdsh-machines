@@ -1,0 +1,3 @@
+{% for item in pdsh_group %}
+{{ hostvars[item].inventory_hostname }}
+{% endfor %}
