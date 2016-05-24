@@ -1,9 +1,5 @@
 ---
 
- - name: grab facts from compute nodes
-   hosts: compute
-   tasks: [ ]
-
  - hosts: localhost
    remote_user: root
    roles:
