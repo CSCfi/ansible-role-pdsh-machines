@@ -1,0 +1,4 @@
+{% for groupname in groups %}
+{% for hname in groups[groupname] %}
+{{ hostvars[hname].inventory_hostname }},{% endfor %} {{ groupname }}
+{% endfor %}
