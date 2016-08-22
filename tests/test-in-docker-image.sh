@@ -119,8 +119,8 @@ function test_playbook(){
 }
 function extra_tests(){
 
-    echo "TEST: cat /etc/machines"
-    cat /etc/machines
+    echo "TEST: cat /etc/genders"
+    cat /etc/genders
 }
 
 

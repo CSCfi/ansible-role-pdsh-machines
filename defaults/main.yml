@@ -1,20 +1,19 @@
 ---
 # defaults file for ansible-role-pdsh-machines
 
+# List of pdsh modules conflicting with genders that must be removed
+pdsh_genders_conflict:
+  - pdsh-mod-dshgroup
+  - pdsh-mod-machines
+
 pdsh_el7_packages:
  - pdsh
- - pdsh-mod-dshgroup
- - pdsh-mod-machines
+ - pdsh-mod-genders
  - pdsh-mod-netgroup
  - pdsh-rcmd-ssh
 
 pdsh_el6_packages:
  - pdsh
- - pdsh-mod-dshgroup
  - pdsh-mod-genders
  - pdsh-mod-netgroup
  - pdsh-rcmd-ssh
-
-
-# The group in the hosts file we populate
-pdsh_group: "{{ groups['compute'] }}"

@@ -1,7 +1,7 @@
 ansible-role-pdsh-machines
-=========
+==========================
 
-Installs and sets up a /etc/machines and /etc/dsh/ files for pdsh
+Installs pdsh and sets up a /etc/genders based on ansible groups.
 
 Requirements
 ------------
@@ -35,3 +35,5 @@ MIT
 Author Information
 ------------------
 
+https://github.com/martbhell
+https://github.com/jabl

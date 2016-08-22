@@ -2,6 +2,10 @@
 # tasks file for ansible-role-pdsh-machines
 #
 
+ - name: remove pdsh modules conflicting with genders
+   package: name={{ item }} state=absent
+   with_items: "{{ pdsh_genders_conflict }}"
+
  - name: install pdsh and dependencies EL7
    yum: name={{ item }} state=installed
    with_items: "{{ pdsh_el7_packages }}"
