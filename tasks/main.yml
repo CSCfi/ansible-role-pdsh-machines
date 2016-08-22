@@ -8,16 +8,5 @@
  - name: populate genders file
    template: src='pdsh_genders.j2' dest='/etc/genders' mode='0644' owner=root group=root
 
-# TODO: Make dsh groups
-# - debug: var=groups
-#
-# - name: populate dsh group files locally
-#   lineinfile:
-#         dest='files/dsh/group/{{ item.key }}'
-#         regexp='^{{ inventory_hostname }}$'
-#         line='{{ inventory_hostname }}'
-#         state=present
-#         create=yes
-#   with_dict: groups
-#   delegate_to: localhost 
-#   become: no
+ - name: Remove old /etc/machines to avoid confusion
+   file: src=/etc/machines state=absent
