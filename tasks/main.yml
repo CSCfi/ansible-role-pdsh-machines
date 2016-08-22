@@ -9,4 +9,4 @@
    template: src='pdsh_genders.j2' dest='/etc/genders' mode='0644' owner=root group=root
 
  - name: Remove old /etc/machines to avoid confusion
-   file: src=/etc/machines state=absent
+   file: path=/etc/machines state=absent
