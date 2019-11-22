@@ -3,6 +3,8 @@ ansible-role-pdsh-machines
 
 Installs and sets up a /etc/machines and /etc/dsh/ files for pdsh
 
+https://github.com/jabl/ansible-role-pdsh-genders is probably better to use than this role
+
 Requirements
 ------------
 

@@ -19,5 +19,5 @@
 #         state=present
 #         create=yes
 #   with_dict: groups
-#   delegate_to: localhost 
+#   delegate_to: localhost
 #   become: no
